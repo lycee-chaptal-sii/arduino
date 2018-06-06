@@ -1,3 +1,6 @@
+//  Copyright (c) 2018 Antoine Tran Tan
+//
+
 #include "Arduino.h"
 #include "include/Grove_I2C_Motor_Driver.h"
 
@@ -27,4 +30,5 @@ void loop()
     Motor.stop(MOTOR1);
     Motor.stop(MOTOR2);
     delay(2000);
+
 }
