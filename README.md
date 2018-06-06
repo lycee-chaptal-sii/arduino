@@ -19,7 +19,8 @@ projet de concevoir un __Robot détecteur d'obstacles__.
 * La conception de votre système doit être réalisé sous forme d'une __machine à
 états finis__ cadencé à 10 Hz.
 * Le robot doit rouler à peu près droit et s'arrêter __progressivement__ à la
-détection d'un obstacle.
+détection d'un obstacle. La distance minimale par rapport à l'obstacle doit être de
+__5 cm__.
 
 ## Par où commencer
 
