@@ -1,3 +1,6 @@
+//  Copyright (c) 2018 Antoine Tran Tan
+//
+
 #include "Arduino.h"
 #include "include/Ultrasonic.h"
 
