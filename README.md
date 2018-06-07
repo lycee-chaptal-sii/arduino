@@ -36,7 +36,7 @@ Montez le robot en vous inspirant des photos ci-dessous.
 Testez d'abord le programme dans la branche __ultrason_grove__ 
 (Utilisation du capteur à ultrason) puis le programme dans la branche 
 __moteurs_grove__ (Utilisation du driver de moteurs). Puis une fois
-compris, basculer dans la branche __squelette_automate__ dans
+compris, basculer dans la branche __tp_robot__ dans
 lequel vous travaillerez.
 
 Vous devez établir un diagramme d'états/transitions sur papier. Une fois
