@@ -3,6 +3,7 @@
 
 #include "Arduino.h"
 #include "include/timer.h"
+#include "include/Grove_I2C_Motor_Driver.h"
 
 /// The class fsm_state is a type whose value is restricted to a
 /// subset of values
