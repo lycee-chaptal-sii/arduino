@@ -12,8 +12,8 @@ void setup()
 
 void loop()
 {
-    long RangeInInches;
-    long RangeInCentimeters;
+    static long RangeInInches;
+    static long RangeInCentimeters;
 
     RangeInInches = ultrasonic.MeasureInInches();
     delay(250);
