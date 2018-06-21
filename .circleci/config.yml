@@ -5,30 +5,49 @@ jobs:
       - image: debian:stretch
     environment:
       - ARDUINO_DIR: "/usr/share/arduino"
-      - ARDMK_DIR: "/usr/share/arduino"
+      - ARDMK_DIR: "/root/project/Arduino-Makefile"
       - AVR_TOOLS_DIR: "/usr"
+      - ARDUINO_PACKAGE_DIR: "/root/.arduino15/packages"
+      - DISPLAY: ":0"
+      - DEBIAN_FRONTEND: "noninteractive"
     steps:
       - checkout
       - run:
           name: Recherche des dépendances
           command: >
-              apt-get update && apt-get -y install 
-              arduino-mk 
+              apt-get update && apt-get -y install
+              arduino
+              lightdm
+              openjdk-8-jre
+              openjdk-8-jdk
               arduino-core 
               gcc-avr 
               avr-libc 
               avrdude
               libboost-tools-dev
+              git-core
+              build-essential
+
+      - run:
+          name: Installation des utilitaires pour Arduino M0 pro
+          command: >
+              systemctl start lightdm.service
+              arduino --install-boards arduino:samd
+
+      - run:
+          name: Récupération du générateur de Makefile
+          command: >
+              git clone https://github.com/sudar/Arduino-Makefile.git
 
       - run:
           name: Génération du Makefile
           command: >
               echo -e "
               CXXFLAGS_STD = -std=c++14\n
-              BOARD_TAG    = uno\n
+              BOARD_TAG = mzero_pro_bl_dbg\n
               ARDUINO_PORT = /dev/cu.usb*\n
               ARDUINO_LIBS = Ethernet Ethernet/utility Servo SPI Wire\n
-              include /usr/share/arduino/Arduino.mk\n
+              include /root/project/Arduino-Makefile/Sam.mk\n
               " > Makefile
       - run:
           name: Compilation du code Arduino
