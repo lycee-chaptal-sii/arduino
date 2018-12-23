@@ -22,9 +22,6 @@ jobs:
               apt-get -y install
               wget
               arduino-core
-              gcc-avr
-              avr-libc
-              avrdude
               libboost-tools-dev
               git-core
               build-essential &&
@@ -51,7 +48,6 @@ jobs:
               CFLAGS_STD = -std=c99\n
               BOARD_TAG = mzero_pro_bl_dbg\n
               ARDUINO_PORT = /dev/cu.usb*\n
-              ARDUINO_LIBS = Ethernet Ethernet/utility Servo SPI Wire\n
               include /root/project/Arduino-Makefile/Sam.mk\n
               " > Makefile
 
@@ -72,9 +68,9 @@ jobs:
           command: >
             mkdir inspect_dir &&
             cp
-            `find ./ -name '*.ino'`
-            `find ./ -name '*.cpp'`
-            `find ./ -name '*.hpp'`
+            `find ./ -path ./Arduino-Makefile -prune -o -name '*.ino' -print`
+            `find ./ -path ./Arduino-Makefile -prune -o -name '*.cpp' -print`
+            `find ./ -path ./Arduino-Makefile -prune -o -name '*.hpp' -print`
             inspect_dir/. &&
             inspect inspect_dir
             -copyright -crlf -end -link -path_name -tab -ascii -apple_macro
