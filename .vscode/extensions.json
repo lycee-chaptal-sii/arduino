@@ -1,5 +1,6 @@
 {
     "recommendations": [
+        "ms-ceintl.vscode-language-pack-fr",
         "ms-vscode.cpptools",
         "vsciot-vscode.vscode-arduino",
         "ms-vscode.sublime-keybindings"
