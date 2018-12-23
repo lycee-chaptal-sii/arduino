@@ -51,7 +51,6 @@ jobs:
               CFLAGS_STD = -std=c99\n
               BOARD_TAG = mzero_pro_bl_dbg\n
               ARDUINO_PORT = /dev/cu.usb*\n
-              ARDUINO_LIBS = Ethernet Ethernet/utility Servo SPI Wire\n
               include /root/project/Arduino-Makefile/Sam.mk\n
               " > Makefile
 
