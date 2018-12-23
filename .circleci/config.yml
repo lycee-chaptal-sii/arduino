@@ -22,9 +22,6 @@ jobs:
               apt-get -y install
               wget
               arduino-core
-              gcc-avr
-              avr-libc
-              avrdude
               libboost-tools-dev
               git-core
               build-essential &&
@@ -71,9 +68,9 @@ jobs:
           command: >
             mkdir inspect_dir &&
             cp
-            `find ./ -name '*.ino'`
-            `find ./ -name '*.cpp'`
-            `find ./ -name '*.hpp'`
+            `find ./ -path ./Arduino-Makefile -prune -o -name '*.ino' -print`
+            `find ./ -path ./Arduino-Makefile -prune -o -name '*.cpp' -print`
+            `find ./ -path ./Arduino-Makefile -prune -o -name '*.hpp' -print`
             inspect_dir/. &&
             inspect inspect_dir
             -copyright -crlf -end -link -path_name -tab -ascii -apple_macro
