@@ -54,6 +54,15 @@ jobs:
               ARDUINO_LIBS = Ethernet Ethernet/utility Servo SPI Wire\n
               include /root/project/Arduino-Makefile/Sam.mk\n
               " > Makefile
+
+      - run:
+          name: Rappatriement des fichiers source
+          command: >
+              if [ -d "src" ]; then
+              sed -i.bak 's+../include+include+g' src/*.cpp &&
+              mv src/*.cpp .;
+              fi
+
       - run:
           name: Compilation du code Arduino
           command: make
